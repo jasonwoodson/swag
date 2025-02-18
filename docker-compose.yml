@@ -1,0 +1,25 @@
+---
+services:
+  swag:
+    image: lscr.io/linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+      - URL=woodsonnetwork.us
+      - SUBDOMAINS=www,nextcloud,emby
+      - VALIDATION=http
+      - CERTPROVIDER=zerossl #optional
+      - DNSPLUGIN=cloudflare #optional
+      - EMAIL=jasond.woodson@gmail.com #optional
+      - ONLY_SUBDOMAINS=false #optional
+      - STAGING=false #optional
+    volumes:
+      - /home/zimaboard_ubuntu/Documents/swag:/config
+    ports:
+      - 443:443
+      - 80:80 #optional
+    restart: unless-stopped
