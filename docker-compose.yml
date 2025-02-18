@@ -18,7 +18,7 @@ services:
       - ONLY_SUBDOMAINS=false #optional
       - STAGING=false #optional
     volumes:
-      - /home/zimaboard_ubuntu/Documents/swag:/config
+      - ~/Documents/swag:/config
     ports:
       - 443:443
       - 80:80 #optional
